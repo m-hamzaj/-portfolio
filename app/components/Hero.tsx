@@ -36,7 +36,13 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full bg-accent/30 blur-xl" />
             <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-accent/40 bg-black/5 sm:h-28 sm:w-28 dark:bg-white/5">
               {avatarSrc ? (
-                <Image src={avatarSrc} alt="M Hamza Javaid" fill sizes="112px" className="object-cover" />
+                <Image
+                  src={avatarSrc}
+                  alt="M Hamza Javaid"
+                  fill
+                  sizes="112px"
+                  className="object-cover object-top"
+                />
               ) : (
                 <span className="absolute inset-0 flex items-center justify-center font-mono text-2xl font-semibold text-zinc-400 dark:text-zinc-600">
                   MHJ
