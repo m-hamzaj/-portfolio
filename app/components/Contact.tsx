@@ -1,12 +1,17 @@
+import { GitBranch, Mail, MessageSquare } from "lucide-react";
+
 const links = [
-  { label: "Email", href: "mailto:mhamzajavaid370@gmail.com", value: "mhamzajavaid370@gmail.com" },
-  { label: "GitHub", href: "https://github.com/m-hamzaj", value: "github.com/m-hamzaj" },
+  { label: "Email", href: "mailto:mhamzajavaid370@gmail.com", value: "mhamzajavaid370@gmail.com", icon: Mail },
+  { label: "GitHub", href: "https://github.com/m-hamzaj", value: "github.com/m-hamzaj", icon: GitBranch },
 ];
 
 export default function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-4xl px-6 py-16">
-      <h2 className="text-sm font-mono font-medium text-zinc-500 dark:text-zinc-400">03 / Contact</h2>
+      <h2 className="flex items-center gap-2 font-mono text-sm font-medium text-accent">
+        <MessageSquare size={15} />
+        03 / Contact
+      </h2>
       <p className="mt-6 max-w-xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
         Have a project in mind, or want to talk about how something here was built? I&apos;m happy to
         hear from you.
@@ -20,10 +25,8 @@ export default function Contact() {
             rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
             className="group flex items-center gap-2 text-base font-medium"
           >
-            <span className="text-zinc-500 dark:text-zinc-400">{link.label}</span>
-            <span className="transition-colors group-hover:text-zinc-500 dark:group-hover:text-zinc-400">
-              {link.value}
-            </span>
+            <link.icon size={16} className="text-accent" />
+            <span className="transition-colors group-hover:text-accent">{link.value}</span>
           </a>
         ))}
       </div>

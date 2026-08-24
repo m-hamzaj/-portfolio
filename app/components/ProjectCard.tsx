@@ -1,10 +1,11 @@
+import { Check, GitBranch } from "lucide-react";
 import type { Project } from "@/app/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <article
-      className={`flex flex-col rounded-2xl border border-black/[.08] p-6 dark:border-white/[.1] ${
-        project.featured ? "sm:col-span-2 bg-black/[.02] dark:bg-white/[.03]" : ""
+      className={`group flex flex-col rounded-2xl border border-black/[.08] p-6 transition-colors hover:border-accent/40 dark:border-white/[.1] ${
+        project.featured ? "bg-black/[.02] dark:bg-white/[.03] sm:col-span-2" : ""
       }`}
     >
       <div className="flex items-start justify-between gap-4">
@@ -16,9 +17,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 rounded-full border border-black/[.1] px-3 py-1.5 text-xs font-medium transition-colors hover:bg-black/[.03] dark:border-white/[.15] dark:hover:bg-white/[.05]"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-black/[.1] px-3 py-1.5 text-xs font-medium transition-colors group-hover:border-accent/40 group-hover:text-accent dark:border-white/[.15]"
         >
-          GitHub &rarr;
+          <GitBranch size={13} />
+          GitHub
         </a>
       </div>
 
@@ -27,7 +29,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <ul className="mt-4 space-y-1.5">
         {project.highlights.map((highlight) => (
           <li key={highlight} className="flex gap-2 text-sm leading-6">
-            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-600" />
+            <Check size={16} className="mt-0.5 shrink-0 text-accent" strokeWidth={2.5} />
             <span className="text-zinc-700 dark:text-zinc-300">{highlight}</span>
           </li>
         ))}
@@ -37,7 +39,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {project.tech.map((tech) => (
           <span
             key={tech}
-            className="rounded-full bg-black/[.05] px-2.5 py-1 font-mono text-xs text-zinc-700 dark:bg-white/[.08] dark:text-zinc-300"
+            className="rounded-full bg-accent-soft px-2.5 py-1 font-mono text-xs text-zinc-700 dark:text-zinc-300"
           >
             {tech}
           </span>
