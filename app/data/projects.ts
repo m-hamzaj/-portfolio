@@ -41,7 +41,7 @@ export const projects: Project[] = [
     ],
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Groq", "Tailwind CSS", "Zod"],
     github: "https://github.com/m-hamzaj/cafe-os",
-    live: "https://cafe-os-m-hamzaj.vercel.app",
+    live: "https://cafe-os-theta-three.vercel.app",
   },
   {
     slug: "saas-sales-bot",
