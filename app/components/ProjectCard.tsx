@@ -1,4 +1,4 @@
-import { Check, GitBranch } from "lucide-react";
+import { Check, ExternalLink, GitBranch } from "lucide-react";
 import type { Project } from "@/app/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -13,15 +13,28 @@ export default function ProjectCard({ project }: { project: Project }) {
           <h3 className="text-lg font-semibold">{project.name}</h3>
           <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{project.tagline}</p>
         </div>
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-black/[.1] px-3 py-1.5 text-xs font-medium transition-colors group-hover:border-accent/40 group-hover:text-accent dark:border-white/[.15]"
-        >
-          <GitBranch size={13} />
-          GitHub
-        </a>
+        <div className="flex shrink-0 gap-2">
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-black/[.1] px-3 py-1.5 text-xs font-medium transition-colors group-hover:border-accent/40 group-hover:text-accent dark:border-white/[.15]"
+            >
+              <ExternalLink size={13} />
+              Live
+            </a>
+          )}
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-black/[.1] px-3 py-1.5 text-xs font-medium transition-colors group-hover:border-accent/40 group-hover:text-accent dark:border-white/[.15]"
+          >
+            <GitBranch size={13} />
+            GitHub
+          </a>
+        </div>
       </div>
 
       <p className="mt-4 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{project.description}</p>

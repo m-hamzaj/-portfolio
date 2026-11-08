@@ -6,6 +6,7 @@ export type Project = {
   highlights: string[];
   tech: string[];
   github: string;
+  live?: string;
   featured?: boolean;
 };
 
@@ -25,6 +26,22 @@ export const projects: Project[] = [
     tech: ["Python", "ChromaDB", "Groq", "fastembed", "Docker"],
     github: "https://github.com/m-hamzaj/rag",
     featured: true,
+  },
+  {
+    slug: "cafe-os",
+    name: "cafe-os",
+    tagline: "Point of sale and inventory for a single cafe, with an AI daily summary",
+    description:
+      "A full-stack cafe system: a fast counter screen for cashiers, and an owner dashboard for sales, menu, stock, costs and supplier orders. Every sale subtracts the ingredients its recipe actually uses, so stock and costs reflect what really happened. The AI summary only narrates figures already computed in SQL -- it never calculates or invents a number.",
+    highlights: [
+      "Recipe-level stock: a latte with oat milk subtracts beans and oat milk, not a generic item count",
+      "Costs recorded at the moment of sale for COGS, gross profit, food cost % and per-item margins",
+      "Reorder points from real usage and supplier lead time, plus purchase orders where only received stock counts",
+      "Waste log and physical counts that keep the reason for every correction",
+    ],
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Groq", "Tailwind CSS", "Zod"],
+    github: "https://github.com/m-hamzaj/cafe-os",
+    live: "https://cafe-os-m-hamzaj.vercel.app",
   },
   {
     slug: "saas-sales-bot",
